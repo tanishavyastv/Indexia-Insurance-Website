@@ -1,6 +1,18 @@
 @import "tailwindcss";
 
 @theme {
+  /* ---- Hero palette (sampled from design mock) ---- */
+  --color-navy: #0b224e;
+  --color-teal: #1dada8;
+  --color-gold: #fde20d;
+  --color-royal: #175ca8;
+  --color-indigo: #1c2a73;
+  --color-steel: #466087;
+
+  /* ---- Typography ---- */
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Caveat", cursive;
+
   /* ---- Green scale ---- */
   --color-indexia-green-50: #edfaf6;
   --color-indexia-green-100: #d3f2e8;
@@ -131,4 +143,33 @@
   --color-on-accent: var(--color-indexia-gray-900);
   --color-inverse: var(--color-indexia-gray-900);
   --color-on-inverse: #ffffff;
+}
+
+@layer components {
+  /* Primary CTA — teal→green gradient fill (sampled from design mock) */
+  .btn-gradient-cta {
+    background-image: linear-gradient(90deg, #06798c, #25b381);
+    transition: background-image 200ms ease, box-shadow 200ms ease;
+  }
+  .btn-gradient-cta:hover {
+    background-image: linear-gradient(90deg, #0887a0, #2ac48e);
+    box-shadow: 0 6px 16px -4px rgb(37 179 129 / 0.45);
+  }
+
+  /* Secondary CTA — gradient border via padding-box/border-box background clip */
+  .btn-gradient-outline {
+    border: 2px solid transparent;
+    background-image:
+      linear-gradient(#ffffff, #ffffff),
+      linear-gradient(90deg, #a9d0ea, #4a7cb0);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    transition: background-image 200ms ease, box-shadow 200ms ease;
+  }
+  .btn-gradient-outline:hover {
+    background-image:
+      linear-gradient(#ffffff, #ffffff),
+      linear-gradient(90deg, #7fb2da, #2f639e);
+    box-shadow: 0 6px 16px -6px rgb(74 124 176 / 0.4);
+  }
 }
