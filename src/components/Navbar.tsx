@@ -57,8 +57,17 @@ function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileSection, setMobileSection] = useState<string | null>(null)
   const [searchOpen, setSearchOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const searchInputRef = useRef<HTMLInputElement>(null)
   const searchWrapRef = useRef<HTMLDivElement>(null)
+
+  // Transparent over the hero; frosted card once the page scrolls
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   // Focus the field when it opens
   useEffect(() => {
@@ -85,10 +94,14 @@ function Navbar() {
   return (
     <div className="fixed inset-x-0 top-4 z-50 px-4">
       <nav className="mx-auto w-full">
-        <div className="flex h-20 items-center justify-between gap-6 rounded-2xl bg-surface/95 px-6 shadow-[0_12px_40px_-12px_rgba(17,42,35,0.25)] backdrop-blur-sm lg:px-10">
+        <div
+          className={`flex h-20 items-center justify-between gap-6 rounded-2xl px-6 transition-all duration-300 ease-out lg:px-10 ${
+            scrolled ? 'navbar-frosted' : 'bg-transparent shadow-none'
+          }`}
+        >
           {/* Logo */}
           <a href="#home" className="shrink-0" aria-label="Indexia Insurance — Home">
-            <img src={logo} alt="Indexia Insurance" className="h-12 w-auto lg:h-15" />
+            <img src={logo} alt="Indexia Insurance" className="h-15 w-auto lg:h-20" />
           </a>
 
           {/* Desktop links */}
