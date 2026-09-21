@@ -13,33 +13,26 @@ const SIDE_BADGES = [
   { icon: priorityBadge },
 ]
 
-/* Handwritten "Because People Matter" with the gold underline swoosh */
 function ScriptTagline() {
   return (
-    <div className="relative hidden md:block" aria-hidden="true">
-      <p className="font-script text-6xl leading-[0.95] font-bold tracking-wide text-royal lg:text-7xl">
-        Because
+    <div
+      className="pointer-events-none absolute right-[30%] bottom-[60%] z-10 hidden w-max rotate-[-16deg] md:block"
+      aria-hidden="true"
+    >
+      <p className="font-script text-6xl whitespace-nowrap text-script-ink lg:text-7xl">
+        Insure
         <br />
-        <span className="pl-10">People Matter</span>
+        <span className="pl-[0.5em]">Your Journey</span>
       </p>
-      {/* Gold swoosh */}
+
       <svg
-        viewBox="0 0 220 30"
-        className="absolute left-2 w-100 text-gold"
-        fill="none"
+        viewBox="0 0 347.6 31.7"
+        className="absolute left-[-1%] top-[94%] w-[105%] text-marker"
         aria-hidden="true"
       >
         <path
-          d="M4 22 C 60 10, 150 4, 216 8"
-          stroke="currentColor"
-          strokeWidth="6"
-          strokeLinecap="round"
-        />
-        <path
-          d="M30 27 C 80 18, 150 12, 200 14"
-          stroke="currentColor"
-          strokeWidth="4"
-          strokeLinecap="round"
+          d="M346.3,11.6C260.5,0 173.4,0.8 87.5,11.8C66.1,14.5 44.5,18.1 23.7,23.3C18.8,24.6 3.1,28.4 0,31.1C0.5,31.3 0.2,31.7 1.1,31.7C5.9,31.6 20.8,26.6 27.4,25.8C26.5,27.3 25,28 25.2,30.1C25.8,30.5 26,30.9 26.8,30.9C30.2,31.1 43.6,26.9 47.7,25.9C63.1,21.9 78.7,19.3 94.3,16.8C98.5,16 102.9,14.4 107.1,15C104,18.2 94.3,16.1 94.9,23C97.3,24.9 100.6,23.4 103.4,22.8C108,21.9 126.5,20.4 128.8,19C125.7,18 121.5,19 118.8,17.2C122.7,14.1 153.8,11.5 160.6,11C199.8,8 237.5,6.4 276.9,7.6C292.7,8.1 308.5,9 324.3,10.5C330.3,11.1 336.2,11.9 342.2,12.4C343,12.4 347.5,12.9 347.6,12.3C347.6,11.8 346.5,11.8 346.3,11.6Z"
+          fill="currentColor"
         />
       </svg>
     </div>
@@ -51,7 +44,7 @@ function SideRail() {
   return (
     <ul className="hidden flex-col gap-2 lg:flex" aria-label="What we protect">
       {SIDE_BADGES.map(({ icon}) => (
-          <img src={icon} alt="" className="size-25 drop-shadow-2xl" loading="lazy" />
+          <img src={icon} alt="" className="size-21 drop-shadow-2xl" loading="lazy" />
       ))}
     </ul>
   )
@@ -70,9 +63,12 @@ function Hero() {
         {/* Soft fade at the top for the icon rail */}
         <div className="absolute inset-x-0 top-0 h-60 hidden bg-linear-to-b from-white/70 to-transparent lg:block" />
 
+        {/* Script tagline — pinned to the hero at the mock's position (see ScriptTagline) */}
+        <ScriptTagline />
+
         {/* Content */}
         <div className="relative z-10 flex min-h-svh flex-col justify-between px-6 pt-28 pb-10 lg:px-14 lg:pt-32 lg:pb-12">
-          <div className="grid flex-1 items-center gap-10 lg:grid-cols-[1.05fr_auto_auto] lg:gap-16">
+          <div className="grid flex-1 items-center gap-10 lg:grid-cols-[1.05fr_auto] lg:gap-16">
             {/* Copy column */}
             <div className="max-w-xl">
               <p className="flex items-center gap-3 text-xs font-semibold tracking-[0.28em] text-teal uppercase">
@@ -126,9 +122,6 @@ function Hero() {
                 </a>
               </div>
             </div>
-
-            {/* Script tagline */}
-            <ScriptTagline />
 
             {/* Icon rail */}
             <SideRail />
