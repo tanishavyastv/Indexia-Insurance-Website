@@ -51,8 +51,8 @@ export const CONTACTS: {
       ),
       content: (
         <p className="text-[12px] leading-relaxed text-[#b1c6de]">
-          213, Second Floor, Imperial Tower,<br />
-          Near Gurudwara, C Block Commercial Complex,<br />
+          213, Second Floor, Imperial Tower, <br />
+          Near Gurudwara, C Block Commercial Complex, <br />
           Naraina Vihar, New Delhi - 110028
         </p>
       ),
