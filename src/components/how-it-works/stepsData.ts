@@ -13,6 +13,7 @@ export type Step = {
   chip: string
   dash: string
   arrow: string
+  pulseColor: string
 }
 
 export const steps: Step[] = [
@@ -26,6 +27,7 @@ export const steps: Step[] = [
     chip: 'bg-[#d2ebfd] text-[#05245e]',
     dash: 'border-[#7db8ea]',
     arrow: 'border-[#8fc7ee] text-[#0d6bb8]',
+    pulseColor: '#7db8ea',
   },
   {
     num: '02',
@@ -37,6 +39,7 @@ export const steps: Step[] = [
     chip: 'bg-[#c7f7e7] text-[#0b5138]',
     dash: 'border-[#7fdcae]',
     arrow: 'border-[#8fe4c0] text-[#12a06b]',
+    pulseColor: '#7fdcae',
   },
   {
     num: '03',
@@ -48,6 +51,7 @@ export const steps: Step[] = [
     chip: 'bg-[#d7f0fe] text-[#05245e]',
     dash: 'border-[#7db8ea]',
     arrow: 'border-[#8fc7ee] text-[#0d6bb8]',
+    pulseColor: '#7db8ea',
   },
   {
     num: '04',
@@ -59,5 +63,6 @@ export const steps: Step[] = [
     chip: 'bg-[#caf5ec] text-[#0b5138]',
     dash: '',
     arrow: '',
+    pulseColor: '#7fdcae',
   },
 ]
