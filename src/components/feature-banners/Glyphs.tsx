@@ -11,7 +11,6 @@ export function CalendarGlyph() {
     </svg>
   )
 }
-
 export function Arrow({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
