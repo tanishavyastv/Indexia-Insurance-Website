@@ -7,21 +7,29 @@
   }
 
   .btn-gradient-cta {
-    background-image: linear-gradient(90deg, #06798c, #25b381);
+    background-image: linear-gradient(
+      90deg,
+      var(--color-cta-from),
+      var(--color-cta-to)
+    );
     transition:
       background-image 200ms ease,
       box-shadow 200ms ease;
   }
   .btn-gradient-cta:hover {
-    background-image: linear-gradient(90deg, #0887a0, #2ac48e);
+    background-image: linear-gradient(
+      90deg,
+      var(--color-cta-from-strong),
+      var(--color-cta-to-strong)
+    );
     box-shadow: 0 6px 16px -4px rgb(37 179 129 / 0.45);
   }
 
   .btn-gradient-outline {
     border: 2px solid transparent;
     background-image:
-      linear-gradient(#ffffff, #ffffff),
-      linear-gradient(90deg, #a9d0ea, #4a7cb0);
+      linear-gradient(var(--color-surface), var(--color-surface)),
+      linear-gradient(90deg, var(--color-outline-from), var(--color-outline-to));
     background-origin: border-box;
     background-clip: padding-box, border-box;
     transition:
@@ -30,8 +38,8 @@
   }
   .btn-gradient-outline:hover {
     background-image:
-      linear-gradient(#ffffff, #ffffff),
-      linear-gradient(90deg, #7fb2da, #2f639e);
+      linear-gradient(var(--color-surface), var(--color-surface)),
+      linear-gradient(90deg, var(--color-outline-from-strong), var(--color-outline-to-strong));
     box-shadow: 0 6px 16px -6px rgb(74 124 176 / 0.4);
   }
 
@@ -45,7 +53,12 @@
   }
 
   .dropdown-topline {
-    background-image: linear-gradient(90deg, #06798c, #25b381 55%, #fde20d);
+    background-image: linear-gradient(
+      90deg,
+      var(--color-cta-from),
+      var(--color-cta-to) 55%,
+      var(--color-gold)
+    );
   }
 
   .mega-link {
@@ -55,8 +68,8 @@
       padding-left 150ms ease;
   }
   .mega-link:hover {
-    background-color: var(--soft, #e4f6f2);
-    color: var(--acc, #047a72);
+    background-color: var(--soft, var(--color-nav-accent-soft));
+    color: var(--acc, var(--color-nav-accent));
     padding-left: 0.875rem;
   }
 }
