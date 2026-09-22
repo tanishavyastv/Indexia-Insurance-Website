@@ -3,9 +3,10 @@ import SectionSeam from './SectionSeam'
 import { Connector } from './how-it-works/Connector'
 import { steps } from './how-it-works/stepsData'
 import { useStepSequence } from './how-it-works/useStepSequence'
+import type { CSSProperties } from 'react'
 
 export default function HowItWorks() {
-  const stepsRef = useStepSequence<HTMLUListElement>()
+  const stepsRef = useStepSequence<HTMLOListElement>()
   return (
     <section
       id="how-it-works"
@@ -40,12 +41,18 @@ export default function HowItWorks() {
           className="hiw-steps mt-6 grid grid-cols-1 gap-y-8 sm:grid-cols-2 sm:gap-x-4 xl:grid-cols-4 xl:gap-x-0"
         >
           {steps.map((step, i) => (
-            <li key={step.num} data-reveal className="relative flex flex-col items-center text-center">
+            <li
+              key={step.num}
+              data-reveal
+              className="relative flex flex-col items-center text-center"
+              style={{ '--pulse-color': step.pulseColor } as CSSProperties}
+            >
               {/* Connector to the next step (drawn between halos) */}
               {i < steps.length - 1 && <Connector dash={step.dash} arrow={step.arrow} delayMs={i * 1400} />}
-              {/* Icon halo */}
+              {/* Icon halo — --seq-delay schedules its ripple in the wave */}
               <div
                 className={`hiw-halo relative grid h-28 w-28 shrink-0 place-items-center rounded-full border-2 bg-white/60 ${step.ring}`}
+                style={{ '--seq-delay': `${i * 1400}ms` } as CSSProperties}
               >
                 <img src={step.icon} alt={step.alt} loading="lazy" className="h-15 w-15 object-contain" />
               </div>
