@@ -9,7 +9,6 @@ export function SocialIcon({ label, children }: { label: string; children: React
     </a>
   )
 }
-
 export function ContactIcon({ children }: { children: React.ReactNode }) {
   return (
     <span
