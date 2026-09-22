@@ -38,3 +38,172 @@
     animation: none;
   }
 }
+
+/* ---- Why Indexia promise cards ---- */
+@keyframes promise-levitate {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes promise-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(3deg);
+  }
+}
+
+@keyframes promise-spring-pop {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  35% {
+    transform: translateY(-7px) rotate(-7deg) scale(1.14);
+  }
+  60% {
+    transform: translateY(-5px) rotate(4deg) scale(0.96);
+  }
+  80% {
+    transform: translateY(-6px) rotate(-2deg) scale(1.05);
+  }
+  100% {
+    transform: translateY(-6px) rotate(0deg) scale(1.1);
+  }
+}
+
+@keyframes promise-aurora-sweep {
+  0% {
+    left: -70%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    left: 130%;
+    opacity: 0;
+  }
+}
+
+@keyframes promise-title-flow {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Rest state — the section breathes */
+.promise-card {
+  animation: promise-levitate 5s ease-in-out infinite;
+}
+.promise-card:nth-child(2n) {
+  animation-delay: -1.2s;
+}
+.promise-card:nth-child(3n) {
+  animation-delay: -2.6s;
+}
+.promise-card:nth-child(4n) {
+  animation-delay: -3.8s;
+}
+
+.promise-icon-wrap {
+  animation: promise-bob 4s ease-in-out infinite;
+  will-change: transform;
+}
+.promise-card:nth-child(2n) .promise-icon-wrap {
+  animation-delay: -1.6s;
+}
+
+/* Hover — the crazy part */
+.promise-card {
+  transition:
+    box-shadow 300ms ease,
+    filter 300ms ease;
+  will-change: transform;
+}
+
+@media (hover: hover) {
+  .promise-card:hover {
+    animation-play-state: paused;
+    transform: perspective(700px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg))
+      translateZ(24px) scale(1.05);
+    transition:
+      transform 120ms ease-out,
+      box-shadow 300ms ease;
+    box-shadow:
+      0 26px 48px -18px rgba(13, 60, 100, 0.38),
+      0 0 0 1.5px rgba(1, 177, 150, 0.35);
+    filter: saturate(1.12);
+  }
+
+  .promise-card:hover .promise-icon-wrap {
+    animation:
+      promise-bob 4s ease-in-out infinite,
+      promise-spring-pop 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  .promise-card:hover .promise-icon-wrap img {
+    filter: drop-shadow(0 8px 14px rgba(1, 146, 165, 0.4));
+  }
+
+  .promise-aurora {
+    position: absolute;
+    top: -55%;
+    left: -70%;
+    height: 210%;
+    width: 45%;
+    rotate: 18deg;
+    background: linear-gradient(
+      100deg,
+      transparent 0%,
+      rgba(0, 209, 255, 0.14) 28%,
+      rgba(0, 255, 200, 0.18) 50%,
+      rgba(176, 106, 255, 0.14) 72%,
+      transparent 100%
+    );
+    filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .promise-card:hover .promise-aurora {
+    animation: promise-aurora-sweep 2s ease-out forwards;
+  }
+
+  .promise-card:hover .promise-title {
+    background: linear-gradient(
+      92deg,
+      #00b196 0%,
+      #b06aff 50%,
+      #00d1ff 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: promise-title-flow 2.2s linear infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .promise-card,
+  .promise-icon-wrap {
+    animation: none !important;
+  }
+  .promise-card:hover {
+    transform: none;
+    filter: none;
+  }
+  .promise-card:hover .promise-aurora {
+    display: none;
+  }
+}
