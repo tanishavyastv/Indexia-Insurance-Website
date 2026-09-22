@@ -1,0 +1,40 @@
+.reveal-ready [data-reveal='out'] {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.reveal-ready [data-reveal='in'] {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---- Dropdown entrance ---- */
+@keyframes dropdown-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dropdown-card,
+  .dropdown-col {
+    animation: none;
+  }
+}
