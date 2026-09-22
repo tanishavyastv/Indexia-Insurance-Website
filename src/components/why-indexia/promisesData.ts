@@ -4,7 +4,14 @@ import lightningIcon from '../../assets/why/Lightning.webp'
 import valueIcon from '../../assets/why/Value.webp'
 import supportIcon from '../../assets/why/Support.webp'
 
-export const promises = [
+export type PromiseItem = {
+  icon: string
+  alt: string
+  title: string
+  body: string
+}
+
+export const promises: PromiseItem[] = [
   { icon: shieldIcon, alt: 'Shield with checkmark', title: 'Secure', body: 'Your data\nis protected.' },
   { icon: documentIcon, alt: 'Document with magnifier', title: 'Transparent', body: 'Clear terms,\nno surprises.' },
   { icon: lightningIcon, alt: 'Lightning bolt', title: 'Quick Claims', body: 'Faster, simpler\nsettlements.' },
