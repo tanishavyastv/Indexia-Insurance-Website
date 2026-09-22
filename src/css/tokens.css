@@ -140,8 +140,24 @@
   --color-body: var(--color-indexia-gray-800);
   --color-muted: var(--color-indexia-gray-500);
   --color-lead: var(--color-indexia-gray-600);
-  
+
   --color-on-accent: var(--color-indexia-gray-900);
   --color-inverse: var(--color-indexia-gray-900);
   --color-on-inverse: #ffffff;
+
+  /* ---- Brand gradient stops (CTAs + dropdown topline) ---- */
+  --color-cta-from: #06798c;
+  --color-cta-to: #25b381;
+  --color-cta-from-strong: #0887a0;
+  --color-cta-to-strong: #2ac48e;
+
+  /* ---- Outline gradient stops (secondary CTA border) ---- */
+  --color-outline-from: #a9d0ea;
+  --color-outline-to: #4a7cb0;
+  --color-outline-from-strong: #7fb2da;
+  --color-outline-to-strong: #2f639e;
+
+  /* ---- Nav accent fallbacks (per-column values arrive via --acc/--soft) ---- */
+  --color-nav-accent: #047a72;
+  --color-nav-accent-soft: #e4f6f2;
 }
